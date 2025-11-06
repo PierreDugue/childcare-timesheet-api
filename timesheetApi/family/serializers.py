@@ -13,4 +13,4 @@ class FamilySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Family
-        fields = "__all__"
+        fields = ['familyId', 'userId', 'name', 'logs']

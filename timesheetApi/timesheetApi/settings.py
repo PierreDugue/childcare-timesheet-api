@@ -58,6 +58,21 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # for CRA if used
 ]
 
+CORS_ALLOWED_METHODS = [
+    'DELETE',
+    'GET', 
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+CORS_ALLOW_HEADERS = [
+    "content-type",
+    "authorization",
+    "x-requested-with",
+]
+
 ROOT_URLCONF = 'timesheetApi.urls'
 
 TEMPLATES = [
