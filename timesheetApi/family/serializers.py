@@ -3,9 +3,12 @@ from .models import Family, FamilyLog
 
 
 class FamilyLogSerializer(serializers.ModelSerializer):
+    startHour = serializers.CharField(source='start_hour', allow_blank=True, required=False)
+    endHour = serializers.CharField(source='end_hour', allow_blank=True, required=False)
+    
     class Meta:
         model = FamilyLog
-        fields = "__all__"
+        fields = ['id', 'family', 'date', 'startHour', 'endHour', 'comment', 'signature']
 
 
 class FamilySerializer(serializers.ModelSerializer):
