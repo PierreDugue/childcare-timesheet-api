@@ -10,7 +10,8 @@ class FamilyLogSerializer(serializers.ModelSerializer):
 
 class FamilySerializer(serializers.ModelSerializer):
     logs = FamilyLogSerializer(many=True, read_only=True)
-
+    user = serializers.StringRelatedField(read_only=True)
+    
     class Meta:
         model = Family
-        fields = ['familyId', 'userId', 'name', 'logs']
+        fields = ['familyId', 'user', 'name', 'logs']
