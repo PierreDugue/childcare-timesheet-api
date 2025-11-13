@@ -3,7 +3,9 @@ from .models import Family, FamilyLog
 from .serializers import FamilySerializer, FamilyLogSerializer
 from rest_framework.response import Response
 from rest_framework import status
-
+from django.contrib.auth.models import User
+from django.contrib.auth.hashers import make_password
+from rest_framework.views import APIView
 
 class FamilyViewSet(viewsets.ModelViewSet):
     queryset = Family.objects.all()
@@ -36,3 +38,28 @@ class FamilyLogViewSet(viewsets.ModelViewSet):
         else:
             # Create a new log
             return super().create(request, *args, **kwargs)
+
+class RegisterAPIView(APIView):
+    permission_classes = [permissions.AllowAny]  # anyone can register
+
+    def post(self, request, *args, **kwargs):
+        username = request.data.get("username")
+        email = request.data.get("email")
+        password = request.data.get("password")
+
+        if not username or not email or not password:
+            return Response({"detail": "All fields are required."}, status=status.HTTP_400_BAD_REQUEST)
+
+        if User.objects.filter(username=username).exists():
+            return Response({"detail": "Username already exists."}, status=status.HTTP_400_BAD_REQUEST)
+
+        if User.objects.filter(email=email).exists():
+            return Response({"detail": "Email already exists."}, status=status.HTTP_400_BAD_REQUEST)
+
+        user = User.objects.create(
+            username=username,
+            email=email,
+            password=make_password(password)
+        )
+
+        return Response({"detail": "User created successfully."}, status=status.HTTP_201_CREATED)
