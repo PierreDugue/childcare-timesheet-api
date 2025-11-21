@@ -17,7 +17,11 @@ SECRET_KEY = 'django-insecure-_(vena3(e9-(j_3_j!6-j4d6niiy_0(bl!79s8ggtao%+^!hy@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "childcare-timesheet-api.onrender.com"
+]
 
 
 # Application definition
