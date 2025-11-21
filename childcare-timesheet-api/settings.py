@@ -69,7 +69,8 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://localhost:3000",
-    "https://childcare-timesheet-api.onrender.com"
+    "https://childcare-timesheet-api.onrender.com",
+    "https://childcare-timesheet.onrender.com"
 ]
 
 CORS_ALLOWED_METHODS = [
