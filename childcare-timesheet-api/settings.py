@@ -82,7 +82,7 @@ CORS_ALLOW_HEADERS = [
     "x-requested-with",
 ]
 
-ROOT_URLCONF = 'timesheetApi.urls'
+ROOT_URLCONF = 'childcare-timesheet-api.urls'
 
 TEMPLATES = [
     {
@@ -99,7 +99,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'timesheetApi.wsgi.application'
+WSGI_APPLICATION = 'childcare-timesheet-api.wsgi.application'
 
 
 # Database
