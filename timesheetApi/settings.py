@@ -115,7 +115,7 @@ WSGI_APPLICATION = 'timesheetApi.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:5432/timesheetApi',
+        default='postgresql://postgres:postgres@localhost:5432/childcare-timesheet-api',
         conn_max_age=600
     )
 }
